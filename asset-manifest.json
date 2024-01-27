@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/toad-frontend/static/css/main.31d6cfe0.css",
+    "main.js": "/toad-frontend/static/js/main.bd2ac598.js",
+    "index.html": "/toad-frontend/index.html",
+    "main.bd2ac598.js.map": "/toad-frontend/static/js/main.bd2ac598.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.bd2ac598.js"
+  ]
+}
