@@ -14,7 +14,7 @@ export const useToadContext = () => {
 
 // custom Provider that holds that creates own state
 export const ToadProvider = ({ children }) => {
-  const [toad, setToad] = useState({ name: "Timmothy" });
+  const [toad, setToad] = useState({});
   return (
     <ToadContext.Provider value={{ toad, setToad }}>
       {children}
