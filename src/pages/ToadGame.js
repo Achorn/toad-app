@@ -3,10 +3,11 @@ import { useToadContext } from "../context/toadContext";
 import { TheToad } from "../components/TheToad";
 import { EducateButton } from "../components/buttons/EducateButton";
 import { FeedButton } from "../components/buttons/FeedButton";
+import { useGameContext } from "../context/gameContect";
 
 export const ToadGame = () => {
   const { toad, setToad } = useToadContext();
-
+  const { game } = useGameContext();
   useEffect(() => {
     //fetch Jimmothy the toad
     fetch("https://toad-api.onrender.com/api/toads/65b56086262ce654b7b3de6f")
@@ -17,6 +18,7 @@ export const ToadGame = () => {
   return (
     <div className="page">
       <h1>Toad Page</h1>
+      {game && <p>Game: {game.name}</p>}
       {toad && <TheToad />}
       <FeedButton />
       <EducateButton />
