@@ -15,7 +15,7 @@ export const ToadGame = () => {
       .catch((err) => console.log(err.message));
   }, [setToad]);
   return (
-    <div>
+    <div className="page">
       <h1>Toad Page</h1>
       {toad && <TheToad />}
       <FeedButton />

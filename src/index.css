@@ -1,0 +1,16 @@
+/* CLASS Naming: lowercase-and-hyphens */
+/* ID Naming: camelCase  */
+
+body {
+  margin: 0 auto;
+}
+
+.App {
+}
+
+.page {
+  text-align: center;
+}
+
+#navBar {
+}
