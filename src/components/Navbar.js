@@ -16,5 +16,3 @@ export const Navbar = () => {
     </div>
   );
 };
-
-// "homepage": "https://Achorn.github.io/toad-frontend",
