@@ -1,6 +1,5 @@
 {
   "name": "toad-app",
-  "homepage": "https://Achorn.github.io/toad-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
