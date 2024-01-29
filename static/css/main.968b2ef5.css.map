@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.968b2ef5.css","mappings":"AAGA,KACE,aACF,CAKA,MACE,iBACF","sources":["index.css"],"sourcesContent":["/* CLASS Naming: lowercase-and-hyphens */\n/* ID Naming: camelCase  */\n\nbody {\n  margin: 0 auto;\n}\n\n.App {\n}\n\n.page {\n  text-align: center;\n}\n\n#navBar {\n}\n"],"names":[],"sourceRoot":""}
