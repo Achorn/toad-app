@@ -9,6 +9,7 @@ export const useGameContext = () => {
     throw Error("useToadContext must be used within a ToadContextProvider");
   return context;
 };
+
 // create provider
 export const GameProvider = ({ children }) => {
   const [game, setGame] = useState({ name: "random name" });

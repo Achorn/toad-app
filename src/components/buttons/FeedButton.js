@@ -1,3 +1,3 @@
 export const FeedButton = () => {
-  return <button>Feed</button>;
+  return <button className="material-symbols-rounded">water_drop</button>;
 };

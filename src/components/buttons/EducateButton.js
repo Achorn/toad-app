@@ -1,3 +1,3 @@
 export const EducateButton = () => {
-  return <button>Educate</button>;
+  return <button className="material-symbols-rounded">menu_book</button>;
 };
