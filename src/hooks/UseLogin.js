@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { UseAuthContext } from "./UseAuthContext";
+import { UseAuthContext } from "./useAuthContext";
 
 export const UseLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
