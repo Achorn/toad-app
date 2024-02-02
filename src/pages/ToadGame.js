@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { useToadContext } from "../context/toadContext";
+import { useToadContext } from "../context/ToadContext";
 import { TheToad } from "../components/TheToad";
 import { EducateButton } from "../components/buttons/EducateButton";
 import { FeedButton } from "../components/buttons/FeedButton";
-import { useGameContext } from "../context/gameContect";
+import { useGameContext } from "../context/GameContext";
 
 export const ToadGame = () => {
   const { toad, setToad } = useToadContext();
@@ -16,7 +16,7 @@ export const ToadGame = () => {
       .catch((err) => console.log(err.message));
   }, [setToad]);
   return (
-    <div className="page">
+    <div>
       <h1>Toad Page</h1>
       {game && <p>Game: {game.name}</p>}
       {toad && <TheToad />}
