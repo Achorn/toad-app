@@ -12,20 +12,22 @@ export const Signup = () => {
     signup(email, password);
   };
   return (
-    <div className="page">
+    <form className="signup" onSubmit={handleSubmit}>
       <h3>Sign Up</h3>
-      <form onSubmit={handleSubmit}>
-        <label>Email:</label>
-        <input value={email} onChange={(e) => setEmail(e.target.value)}></input>
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <button disabled={isLoading}>Submit</button>
-      </form>
-      {error && <div>{error}</div>}
-    </div>
+      <label>Email:</label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      ></input>
+      <label>Password:</label>
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      ></input>
+      <button disabled={isLoading}>Submit</button>
+      {error && <div className="error">{error}</div>}
+    </form>
   );
 };

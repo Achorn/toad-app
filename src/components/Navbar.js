@@ -5,11 +5,14 @@ import { UseLogout } from "../hooks/useLogout";
 export const Navbar = () => {
   const { user } = UseAuthContext();
   const { logout } = UseLogout();
+
   return (
-    <div>
-      <nav>
-        <ul id="navigation">
-          <Link to="/">Home</Link>
+    <header>
+      <div className="container">
+        <Link to="/">
+          <h1>King Toad</h1>
+        </Link>
+        <nav>
           <Link to="/about">About</Link>
           {!user && (
             <div>
@@ -17,9 +20,14 @@ export const Navbar = () => {
               <Link to="/login">Log In</Link>
             </div>
           )}
-          {user && <button onClick={logout}>Logout</button>}
-        </ul>
-      </nav>
-    </div>
+          {user && (
+            <div>
+              <span>{user.email}</span>
+              <button onClick={logout}>Logout</button>
+            </div>
+          )}
+        </nav>
+      </div>
+    </header>
   );
 };
