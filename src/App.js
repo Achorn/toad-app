@@ -12,9 +12,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<ToadGame />} />
+          <Route path="/about" element={<About />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/about" element={<About />} />
         </Routes>
       </HashRouter>
     </div>
