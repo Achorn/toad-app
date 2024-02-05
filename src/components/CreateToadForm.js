@@ -14,7 +14,6 @@ export const CreateToadForm = () => {
       setError("You must be logged in");
       return;
     }
-
     const toad = { name };
     const response = await fetch("https://toad-api.onrender.com/api/toads/", {
       method: "POST",
@@ -24,9 +23,7 @@ export const CreateToadForm = () => {
         Authorization: `Bearer ${user.token}`,
       },
     });
-
     const json = await response.json();
-
     if (!response.ok) {
       setError(json.error);
     } else {
