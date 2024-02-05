@@ -13,7 +13,7 @@ export const Navbar = () => {
           <h1>King Toad</h1>
         </Link>
         <nav>
-          <Link to="/about">About</Link>
+          {/* <Link to="/about">About</Link> */}
           {!user && (
             <div>
               <Link to="/signup">Sign Up</Link>
