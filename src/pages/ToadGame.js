@@ -1,42 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { TheToad } from "../components/TheToad";
 import { EducateButton } from "../components/buttons/EducateButton";
 import { FeedButton } from "../components/buttons/FeedButton";
-import { UseAuthContext } from "../hooks/useAuthContext";
 import { CreateToadForm } from "../components/CreateToadForm";
 import { useToadContext } from "../hooks/useToadContext";
+import { useDeleteToad, useGetToad } from "../hooks/useToad";
 
 export const ToadGame = () => {
-  const { user } = UseAuthContext();
-  const { toad, dispatch } = useToadContext();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { toad } = useToadContext();
+  const { getToad, error, loading } = useGetToad();
+  const {
+    deleteToad,
+    error: deleteError,
+    loading: deleteLoading,
+  } = useDeleteToad();
 
   useEffect(() => {
-    console.log("fetching toad");
-    console.log(user);
-    setLoading(true);
-    fetch("https://toad-api.onrender.com/api/toads/", {
-      headers: {
-        Authorization: `Bearer: ${user.token}`,
-      },
-    })
-      .then((res) => {
-        console.log("res: ", res);
-        return res.json();
-      })
-      .then((data) => {
-        console.log("data: ", data);
-        dispatch({ type: "SET_TOAD", payload: data });
-      })
-      .catch((err) => {
-        setError(err.message);
-        console.log(err.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [dispatch, user]);
+    fetchToad();
+  }, []);
+  const fetchToad = () => getToad();
 
   return (
     <div>
@@ -51,8 +33,14 @@ export const ToadGame = () => {
           ) : (
             <div>
               <TheToad />
-              <FeedButton />
-              <EducateButton />
+              <div>
+                <FeedButton />
+                <EducateButton />
+              </div>
+              <button disabled={deleteLoading} onClick={deleteToad}>
+                Delete
+              </button>
+              {deleteError && <div className="error">{deleteError}</div>}
             </div>
           )}
         </div>

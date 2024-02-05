@@ -1,0 +1,68 @@
+import { useState } from "react";
+import { useToadContext } from "./useToadContext";
+import { UseAuthContext } from "./useAuthContext";
+
+export const useGetToad = () => {
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const { dispatch } = useToadContext();
+  const { user } = UseAuthContext();
+
+  const getToad = async () => {
+    setError(null);
+    setLoading(true);
+
+    const response = await fetch("https://toad-api.onrender.com/api/toads/", {
+      headers: {
+        Authorization: `Bearer: ${user.token}`,
+      },
+    });
+
+    const json = await response.json();
+
+    if (!response.ok) {
+      setError(json.error);
+    } else {
+      dispatch({ type: "SET_TOAD", payload: json });
+    }
+
+    setLoading(false);
+  };
+  return { getToad, error, loading };
+};
+
+export const useDeleteToad = () => {
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const { toad, dispatch } = useToadContext();
+  const { user } = UseAuthContext();
+
+  const deleteToad = async () => {
+    setError(null);
+    setLoading(true);
+
+    const response = await fetch(
+      "https://toad-api.onrender.com/api/toads/" + toad._id,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer: ${user.token}`,
+          "Content-Type": "Application/json",
+          Accept: "application/json",
+        },
+      }
+    );
+    const json = await response.json();
+
+    if (!response.ok) {
+      setError(json.error);
+    } else {
+      dispatch({ type: "DELETE_TOAD" });
+    }
+
+    setLoading(false);
+  };
+  return { deleteToad, error, loading };
+};

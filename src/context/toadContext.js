@@ -3,10 +3,11 @@ import { createContext, useReducer } from "react";
 export const ToadContext = createContext();
 
 export const toadReducer = (state, action) => {
-  console.log("REDUCER", action);
   switch (action.type) {
     case "SET_TOAD":
       return { toad: action.payload };
+    case "DELETE_TOAD":
+      return { toad: null };
     default:
       return state;
   }
