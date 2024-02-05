@@ -12,10 +12,13 @@ export const useGameContext = () => {
 
 // create provider
 export const GameProvider = ({ children }) => {
-  const [game, setGame] = useState({ name: "random name" });
+  const [interaction, setInteraction] = useState("");
+  const [error, setError] = useState();
 
   return (
-    <GameContext.Provider value={{ game, setGame }}>
+    <GameContext.Provider
+      value={{ interaction, setInteraction, error, setError }}
+    >
       {children}
     </GameContext.Provider>
   );

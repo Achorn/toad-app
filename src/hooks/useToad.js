@@ -105,3 +105,47 @@ export const useCreateToad = () => {
 
   return { createToad, loading, error };
 };
+
+export const useUpdateToad = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
+
+  const { dispatch } = useToadContext();
+  const { user } = UseAuthContext();
+
+  const updateToad = async (previousToad, toad) => {
+    console.log("creating toad");
+    setError();
+    setLoading(true);
+    console.log("toadID: ", toad._id);
+    console.log("token: ", user.token);
+
+    fetch("https://toad-api.onrender.com/api/toads/" + toad._id, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+        "Content-Type": "Application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(toad),
+    })
+      .then(async (response) => {
+        const json = await response.json();
+        if (!response.ok) {
+          setError(json.error);
+          dispatch({ type: "SET_TOAD", payload: previousToad });
+        }
+        if (response.ok) {
+          console.log("dispatching");
+          dispatch({ type: "SET_TOAD", payload: toad });
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+        return;
+      })
+      .finally(() => setLoading(false));
+  };
+
+  return { updateToad, loading, error };
+};
