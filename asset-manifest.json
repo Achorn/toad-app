@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/toad-app/static/css/main.5dc59100.css",
+    "main.css": "/toad-app/static/css/main.e30933af.css",
     "main.js": "/toad-app/static/js/main.4110e96d.js",
     "index.html": "/toad-app/index.html",
-    "main.5dc59100.css.map": "/toad-app/static/css/main.5dc59100.css.map",
+    "main.e30933af.css.map": "/toad-app/static/css/main.e30933af.css.map",
     "main.4110e96d.js.map": "/toad-app/static/js/main.4110e96d.js.map"
   },
   "entrypoints": [
-    "static/css/main.5dc59100.css",
+    "static/css/main.e30933af.css",
     "static/js/main.4110e96d.js"
   ]
 }
