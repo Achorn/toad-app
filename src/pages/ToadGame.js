@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { useToadContext } from "../context/ToadContext";
 import { TheToad } from "../components/TheToad";
 import { EducateButton } from "../components/buttons/EducateButton";
 import { FeedButton } from "../components/buttons/FeedButton";
 import { useGameContext } from "../context/GameContext";
 import { UseAuthContext } from "../hooks/useAuthContext";
+import { CreateToadForm } from "../components/CreateToadForm";
+import { useToadContext } from "../hooks/useToadContext";
 
 export const ToadGame = () => {
   const { user } = UseAuthContext();
@@ -23,7 +24,7 @@ export const ToadGame = () => {
   }, [setToad, user]);
   return (
     <div>
-      <h1>Toad Page</h1>
+      <CreateToadForm />
       {game && <p>Game: {game.name}</p>}
       {toad && <TheToad />}
       <FeedButton />

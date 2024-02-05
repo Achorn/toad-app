@@ -1,4 +1,4 @@
-import { useToadContext } from "../context/ToadContext";
+import { useToadContext } from "../hooks/useToadContext";
 
 export const TheToad = () => {
   const { toad } = useToadContext();

@@ -1,22 +1,20 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useReducer } from "react";
 
 export const ToadContext = createContext();
 
-// TODO create custom reducer for detailed toad updates in the future
-
-//custom react component that holds context state. less inports through app use context AND toad context
-export const useToadContext = () => {
-  const context = useContext(ToadContext);
-  if (!context)
-    throw Error("useToadContext must be used within a ToadContextProvider");
-  return context;
+export const toadReducer = (state, action) => {
+  switch (action.type) {
+    case "SET_TOAD":
+      return { toad: action.payload };
+    default:
+      return state;
+  }
 };
 
-// custom Provider that holds that creates own state
 export const ToadProvider = ({ children }) => {
-  const [toad, setToad] = useState({});
+  const [state, dispatch] = useReducer(toadReducer, { toad: null });
   return (
-    <ToadContext.Provider value={{ toad, setToad }}>
+    <ToadContext.Provider value={{ ...state, dispatch }}>
       {children}
     </ToadContext.Provider>
   );
