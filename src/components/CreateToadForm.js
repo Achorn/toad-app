@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { UseAuthContext } from "../hooks/useAuthContext";
+import { useToadContext } from "../hooks/useToadContext";
 
 export const CreateToadForm = () => {
   const [name, setName] = useState("");
   const [error, setError] = useState(null);
   const { user } = UseAuthContext();
+  const { dispatch } = useToadContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ export const CreateToadForm = () => {
       setError(json.error);
     } else {
       setError(null);
-      // dispatch{type}
+      dispatch({ type: "SET_TOAD", payload: json });
     }
   };
 
