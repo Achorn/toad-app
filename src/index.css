@@ -38,7 +38,7 @@ header h1 {
 }
 
 header a {
-  color: #333;
+  color: var(--prColor);
   text-decoration: none;
 }
 
@@ -94,7 +94,6 @@ input {
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.363);
@@ -104,7 +103,7 @@ input {
 form button {
   background: var(--prColor);
   border: 0;
-  color: #fff;
+  color: var(--secColor);
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
