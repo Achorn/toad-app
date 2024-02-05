@@ -4,17 +4,23 @@ import { TheToad } from "../components/TheToad";
 import { EducateButton } from "../components/buttons/EducateButton";
 import { FeedButton } from "../components/buttons/FeedButton";
 import { useGameContext } from "../context/GameContext";
+import { UseAuthContext } from "../hooks/useAuthContext";
 
 export const ToadGame = () => {
+  const { user } = UseAuthContext();
   const { toad, setToad } = useToadContext();
   const { game } = useGameContext();
   useEffect(() => {
     //fetch Jimmothy the toad
-    fetch("https://toad-api.onrender.com/api/toads/65b56086262ce654b7b3de6f")
+    fetch("https://toad-api.onrender.com/api/toads/", {
+      headers: {
+        Authorization: `Bearer: ${user.token}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setToad(data))
       .catch((err) => console.log(err.message));
-  }, [setToad]);
+  }, [setToad, user]);
   return (
     <div>
       <h1>Toad Page</h1>
