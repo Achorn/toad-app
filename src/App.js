@@ -1,10 +1,10 @@
 import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
-import { ToadGame } from "./pages/ToadGame";
 import { Navbar } from "./components/Navbar";
 import { About } from "./pages/About";
 import { Signup } from "./pages/Signup";
 import { Login } from "./pages/Login";
 import { UseAuthContext } from "./hooks/useAuthContext";
+import { ToadPage } from "./pages/ToadPage";
 
 function App() {
   const { user } = UseAuthContext();
@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={user ? <ToadGame /> : <Navigate to="/login" />}
+              element={user ? <ToadPage /> : <Navigate to="/login" />}
             />
             <Route path="/about" element={<About />} />
             <Route

@@ -1,5 +1,5 @@
 import { TheToad } from "./TheToad";
-import { DeleteToad } from "./buttons/DeleteToadButton";
+import { DeleteToad } from "./buttons/DeleteToad";
 import { EducateButton } from "./buttons/EducateButton";
 import { FeedButton } from "./buttons/FeedButton";
 

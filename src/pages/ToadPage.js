@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { CreateToadForm } from "../components/CreateToadForm";
 import { useToadContext } from "../hooks/useToadContext";
 import { UseAuthContext } from "../hooks/useAuthContext";
+import { ToadGame } from "../components/ToadGame";
 
 export const ToadPage = () => {
   const { toad } = useToadContext();
@@ -41,8 +42,10 @@ export const ToadPage = () => {
         <div>Loading...</div>
       ) : error ? (
         <div>{error}</div>
+      ) : !toad ? (
+        <CreateToadForm />
       ) : (
-        <div>{!toad ? <CreateToadForm /> : <ToadPage />}</div>
+        <ToadGame />
       )}
     </div>
   );
