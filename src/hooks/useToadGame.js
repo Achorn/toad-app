@@ -5,7 +5,7 @@ import { useUpdateToad } from "./useToad";
 export const useToadGame = () => {
   const { interaction, setInteraction } = useGameContext();
   const { toad } = useToadContext();
-  const { updateToad, error } = useUpdateToad();
+  const { updateToad } = useUpdateToad();
   const handleSetInteraction = (input) => {
     setInteraction(input);
     console.log(interaction);
@@ -14,9 +14,6 @@ export const useToadGame = () => {
     const updatedToad = { ...toad };
     updatedToad.water_points = updatedToad.water_points + 1;
     updatedToad.last_feeding = new Date();
-    console.log(updatedToad);
-    // return;
-    //send fetch requiest for PUT
     updateToad(toad, updatedToad);
 
     setInteraction(null);
@@ -25,9 +22,6 @@ export const useToadGame = () => {
     const updatedToad = { ...toad };
     updatedToad.education_points = updatedToad.education_points + 1;
     updatedToad.last_lesson = new Date();
-    console.log(updatedToad);
-    // return;
-    //send fetch requiest for PUT
     updateToad(toad, updatedToad);
 
     setInteraction(null);
@@ -47,5 +41,5 @@ export const useToadGame = () => {
         break;
     }
   };
-  return { interaction, handleSetInteraction, interactWithToad, error, toad };
+  return { interaction, handleSetInteraction, interactWithToad, toad };
 };

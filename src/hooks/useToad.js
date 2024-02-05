@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useToadContext } from "./useToadContext";
 import { UseAuthContext } from "./useAuthContext";
+import { useGameContext } from "../context/GameContext";
 
 export const useGetToad = () => {
   const [error, setError] = useState();
@@ -85,22 +86,29 @@ export const useCreateToad = () => {
     setLoading(true);
     setError(null);
     const uri = "https://toad-api.onrender.com/api/toads/";
-    const response = await fetch(uri, {
+    const init = {
       method: "POST",
       body: JSON.stringify(toad),
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${user.token}`,
       },
-    });
-    const json = await response.json();
-
-    if (!response.ok) {
-      setError(json.error);
-    } else {
-      dispatch({ type: "SET_TOAD", payload: json });
-    }
-    setLoading(false);
+    };
+    fetch(uri, init)
+      .then((res) => {
+        if (!res.ok) {
+          console.log(res);
+          throw Error(`${res.status}:could not fetch data`);
+        }
+        return res.json();
+      })
+      .then((json) => {
+        dispatch({ type: "SET_TOAD", payload: json });
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => setLoading(false));
   };
 
   return { createToad, loading, error };
@@ -108,19 +116,15 @@ export const useCreateToad = () => {
 
 export const useUpdateToad = () => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
-
+  const { setError } = useGameContext();
   const { dispatch } = useToadContext();
   const { user } = UseAuthContext();
 
   const updateToad = async (previousToad, toad) => {
-    console.log("creating toad");
     setError();
     setLoading(true);
-    console.log("toadID: ", toad._id);
-    console.log("token: ", user.token);
-
-    fetch("https://toad-api.onrender.com/api/toads/" + toad._id, {
+    const uri = "https://toad-api.onrender.com/api/toads/" + toad._id;
+    const fetchInit = {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -128,24 +132,19 @@ export const useUpdateToad = () => {
         Accept: "application/json",
       },
       body: JSON.stringify(toad),
-    })
-      .then(async (response) => {
-        const json = await response.json();
-        if (!response.ok) {
-          setError(json.error);
-          dispatch({ type: "SET_TOAD", payload: previousToad });
+    };
+    fetch(uri, fetchInit)
+      .then((res) => {
+        if (!res.ok) {
+          throw Error(`${res.status}: could not make request`);
         }
-        if (response.ok) {
-          console.log("dispatching");
-          dispatch({ type: "SET_TOAD", payload: toad });
-        }
+        dispatch({ type: "SET_TOAD", payload: toad });
       })
       .catch((err) => {
-        console.log(err.message);
-        return;
+        setError(err.message);
       })
       .finally(() => setLoading(false));
   };
 
-  return { updateToad, loading, error };
+  return { updateToad, loading };
 };
