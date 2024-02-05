@@ -13,10 +13,13 @@ export const CreateToadForm = () => {
   };
 
   return (
-    <form className="toadCreate" onSubmit={handleSubmit}>
-      <h3>Create Toad</h3>
-      <label>Name:</label>
-      <input value={name} onChange={(e) => setName(e.target.value)} />
+    <form className="createToad" onSubmit={handleSubmit}>
+      <h3>Name your toad</h3>
+      <input
+        placeholder="Charlie the Toad"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
       <button disabled={loading}>Create</button>
       {error && <div className="error">{error}</div>}
     </form>

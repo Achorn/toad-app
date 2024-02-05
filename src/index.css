@@ -61,7 +61,8 @@ nav button {
 }
 
 form.signup,
-form.login {
+form.login,
+form.createToad {
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;
