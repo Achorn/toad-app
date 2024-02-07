@@ -8,7 +8,6 @@ export const useToadGame = () => {
   const { updateToad } = useUpdateToad();
   const handleSetInteraction = (input) => {
     setInteraction(input);
-    console.log(interaction);
   };
   const feedToad = () => {
     const updatedToad = { ...toad };

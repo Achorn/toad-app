@@ -12,7 +12,7 @@ export const useGameContext = () => {
 
 // create provider
 export const GameProvider = ({ children }) => {
-  const [interaction, setInteraction] = useState("");
+  const [interaction, setInteraction] = useState();
   const [error, setError] = useState();
 
   return (

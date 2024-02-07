@@ -15,7 +15,6 @@ export const ToadPage = () => {
 
   useEffect(() => {
     const fetchToad = async () => {
-      console.log("fetching toad");
       setError(null);
       setLoading(true);
       const uri = "https://toad-api.onrender.com/api/toads/";

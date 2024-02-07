@@ -11,7 +11,6 @@ export const useGetToad = () => {
   const { user } = UseAuthContext();
 
   const getToad = async () => {
-    console.log("getting toad in useToad");
     setError(null);
     setLoading(true);
 
@@ -77,9 +76,7 @@ export const useCreateToad = () => {
   const { user } = UseAuthContext();
 
   const createToad = async (toad) => {
-    console.log("creating toad");
     if (!user) {
-      console.log("no uese");
       setError("You must be logged in");
       return;
     }
@@ -97,7 +94,6 @@ export const useCreateToad = () => {
     fetch(uri, init)
       .then((res) => {
         if (!res.ok) {
-          console.log(res);
           throw Error(`${res.status}:could not fetch data`);
         }
         return res.json();
@@ -136,7 +132,6 @@ export const useUpdateToad = () => {
     fetch(uri, fetchInit)
       .then((res) => {
         if (!res.ok) {
-          console.log("res: ", res);
           throw Error(`${res.status}: could not make request`);
         }
         dispatch({ type: "SET_TOAD", payload: toad });
