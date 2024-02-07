@@ -5,7 +5,7 @@ import "./theToad.css";
 export const TheToad = () => {
   const { interactWithToad } = useToadGame();
   return (
-    <div id="toadGame" onClick={() => interactWithToad()}>
+    <div id="toadContainer" onClick={() => interactWithToad()}>
       <div id="floatBoxContainer">
         <div id="floatBox" className="float">
           <div id="toadDivWrapper" className="spin">

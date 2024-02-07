@@ -35,17 +35,13 @@ export const ToadPage = () => {
     fetchToad();
   }, [dispatch, user]);
 
-  return (
-    <div>
-      {loading ? (
-        <div>Loading...</div>
-      ) : error ? (
-        <div>{error}</div>
-      ) : !toad ? (
-        <CreateToadForm />
-      ) : (
-        <ToadGame />
-      )}
-    </div>
+  return loading ? (
+    <div>Loading...</div>
+  ) : error ? (
+    <div>{error}</div>
+  ) : !toad ? (
+    <CreateToadForm />
+  ) : (
+    <ToadGame />
   );
 };

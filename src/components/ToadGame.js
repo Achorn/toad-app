@@ -6,12 +6,12 @@ import { FeedButton } from "./buttons/FeedButton";
 import "../components/buttons/button.css";
 import { CancelAction } from "./buttons/CancelAction";
 import { CursorImage } from "./cursorImage/CursorImage";
-
+import "./toadGame.css";
 export const ToadGame = () => {
   const { error } = useGameContext();
 
   return (
-    <div className="toadGame">
+    <div id="toadGame">
       <TheToad />
       <CursorImage />
       <div className="buttonsRow">
