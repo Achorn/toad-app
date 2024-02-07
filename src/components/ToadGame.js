@@ -1,5 +1,5 @@
 import { useGameContext } from "../context/GameContext";
-import { TheToad } from "./TheToad";
+import { TheToad } from "./theToad/TheToad";
 // import { DeleteToad } from "./buttons/DeleteToad";
 import { EducateButton } from "./buttons/EducateButton";
 import { FeedButton } from "./buttons/FeedButton";
@@ -12,8 +12,8 @@ export const ToadGame = () => {
 
   return (
     <div className="toadGame">
-      <CursorImage />
       <TheToad />
+      <CursorImage />
       <div className="buttonsRow">
         <FeedButton />
         <EducateButton />
