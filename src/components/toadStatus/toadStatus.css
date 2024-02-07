@@ -1,0 +1,66 @@
+#health-display {
+  /* display: none */
+  /* visibility: hidden; */
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+  padding: 3px;
+  padding-bottom: 20px;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.363);
+  border: 2px solid var(--prColor);
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 10px 10px 100px rgba(44, 25, 34, 0.273);
+  transform-origin: top right;
+}
+#health-display-title {
+  transition: all 0.2s ease-in-out;
+}
+.health-display-title-small {
+  font-size: 15px;
+  margin: 0px;
+}
+.health-full {
+  width: 200px;
+}
+.health-small {
+  width: 80px;
+  padding: 10px;
+}
+
+.data-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar-container {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  width: 90%;
+  background-color: var(--prColor);
+}
+.data-display p {
+  transition: all 0.2s ease-in-out;
+}
+.bar-container-full {
+  height: 20px;
+  border-radius: 50px;
+}
+.bar-container-small {
+  height: 4px;
+  border-radius: 0px;
+}
+.bar-percentage {
+  height: 100%;
+  transition: all 0.5s ease-out;
+}
+.bar-title-small {
+  font-size: 10px;
+  margin: 2px;
+  overflow: scroll;
+  text-overflow: ellipsis;
+}

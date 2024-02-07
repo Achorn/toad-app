@@ -136,6 +136,7 @@ export const useUpdateToad = () => {
     fetch(uri, fetchInit)
       .then((res) => {
         if (!res.ok) {
+          console.log("res: ", res);
           throw Error(`${res.status}: could not make request`);
         }
         dispatch({ type: "SET_TOAD", payload: toad });

@@ -1,0 +1,11 @@
+.cursor-img-container {
+  position: absolute;
+  pointer-events: none;
+  height: 110px;
+  width: 110px;
+}
+.cursor-img {
+  pointer-events: none;
+  height: 100%;
+  width: auto;
+}

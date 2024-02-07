@@ -1,25 +1,26 @@
-// import { useState } from "react";
 import { useGameContext } from "../context/GameContext";
-// import { useToadContext } from "../hooks/useToadContext";
-// import { useToadGame } from "../hooks/useToadGame";
 import { TheToad } from "./TheToad";
-import { DeleteToad } from "./buttons/DeleteToad";
+// import { DeleteToad } from "./buttons/DeleteToad";
 import { EducateButton } from "./buttons/EducateButton";
 import { FeedButton } from "./buttons/FeedButton";
-// import { useToadContext } from "../hooks/useToadContext";
+import "../components/buttons/button.css";
+import { CancelAction } from "./buttons/CancelAction";
+import { CursorImage } from "./cursorImage/CursorImage";
 
 export const ToadGame = () => {
   const { error } = useGameContext();
 
   return (
-    <div>
+    <div className="toadGame">
+      <CursorImage />
       <TheToad />
-      <div>
+      <div className="buttonsRow">
         <FeedButton />
         <EducateButton />
+        <CancelAction />
       </div>
       {error && <div className="error">{error}</div>}
-      <DeleteToad />
+      {/* <DeleteToad /> */}
     </div>
   );
 };
