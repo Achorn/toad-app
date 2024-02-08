@@ -10,7 +10,6 @@ export const CursorImage = () => {
   useEffect(() => {
     const handleWindowMouseMove = (e) => {
       setCoords({ x: e.clientX, y: e.clientY });
-      console.log(e.clientY);
     };
     window.addEventListener("mousemove", handleWindowMouseMove);
 

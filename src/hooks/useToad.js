@@ -13,22 +13,27 @@ export const useGetToad = () => {
   const getToad = async () => {
     setError(null);
     setLoading(true);
-
-    const response = await fetch("https://toad-api.onrender.com/api/toads/", {
+    const uri = "https://toad-api.onrender.com/api/toads/";
+    const options = {
       headers: {
         Authorization: `Bearer: ${user.token}`,
       },
-    });
+    };
 
-    const json = await response.json();
+    try {
+      const res = await fetch(uri, options);
+      const json = await res.json();
 
-    if (!response.ok) {
-      setError(json.error);
-    } else {
-      dispatch({ type: "SET_TOAD", payload: json });
+      if (res.ok) {
+        dispatch({ type: "SET_TOAD", payload: json });
+      } else {
+        setError(json.message);
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
   return { getToad, error, loading };
 };
@@ -43,27 +48,29 @@ export const useDeleteToad = () => {
   const deleteToad = async () => {
     setError(null);
     setLoading(true);
+    const uri = "https://toad-api.onrender.com/api/toads/";
+    const options = {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer: ${user.token}`,
+        "Content-Type": "Application/json",
+        Accept: "application/json",
+      },
+    };
 
-    const response = await fetch(
-      "https://toad-api.onrender.com/api/toads/" + toad._id,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer: ${user.token}`,
-          "Content-Type": "Application/json",
-          Accept: "application/json",
-        },
+    try {
+      const res = await fetch(uri + toad._id, options);
+      const json = await res.json();
+      if (res.ok) {
+        dispatch({ type: "DELETE_TOAD" });
+      } else {
+        setError(json.message);
       }
-    );
-    const json = await response.json();
-
-    if (!response.ok) {
-      setError(json.error);
-    } else {
-      dispatch({ type: "DELETE_TOAD" });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
   return { deleteToad, error, loading };
 };
@@ -82,8 +89,9 @@ export const useCreateToad = () => {
     }
     setLoading(true);
     setError(null);
+
     const uri = "https://toad-api.onrender.com/api/toads/";
-    const init = {
+    const options = {
       method: "POST",
       body: JSON.stringify(toad),
       headers: {
@@ -91,20 +99,20 @@ export const useCreateToad = () => {
         Authorization: `Bearer ${user.token}`,
       },
     };
-    fetch(uri, init)
-      .then((res) => {
-        if (!res.ok) {
-          throw Error(`${res.status}:could not fetch data`);
-        }
-        return res.json();
-      })
-      .then((json) => {
+    try {
+      const res = await fetch(uri, options);
+      const json = await res.json();
+
+      if (res.ok) {
         dispatch({ type: "SET_TOAD", payload: json });
-      })
-      .catch((err) => {
-        setError(err.message);
-      })
-      .finally(() => setLoading(false));
+      } else {
+        setError(json.message);
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return { createToad, loading, error };
@@ -117,10 +125,10 @@ export const useUpdateToad = () => {
   const { user } = UseAuthContext();
 
   const updateToad = async (previousToad, toad) => {
-    setError();
+    setError(null);
     setLoading(true);
     const uri = "https://toad-api.onrender.com/api/toads/" + toad._id;
-    const fetchInit = {
+    const options = {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -129,17 +137,19 @@ export const useUpdateToad = () => {
       },
       body: JSON.stringify(toad),
     };
-    fetch(uri, fetchInit)
-      .then((res) => {
-        if (!res.ok) {
-          throw Error(`${res.status}: could not make request`);
-        }
+
+    try {
+      const res = await fetch(uri, options);
+      const json = await res.json();
+      if (res.ok) {
         dispatch({ type: "SET_TOAD", payload: toad });
-      })
-      .catch((err) => {
-        setError(err.message);
-      })
-      .finally(() => setLoading(false));
+      } else {
+        setError(json.message);
+      }
+    } catch (err) {
+      setError(err.message);
+    }
+    setLoading(false);
   };
 
   return { updateToad, loading };

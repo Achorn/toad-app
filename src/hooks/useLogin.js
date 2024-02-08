@@ -8,9 +8,8 @@ export const UseLogin = () => {
   const login = async (email, password) => {
     setIsLoading(true);
     setError(null);
-
-    const uri = "https://toad-api.onrender.com/api/user/login";
-    const init = {
+    const uri = "https://toad-api.onrender.com/api/user/logi";
+    const options = {
       method: "POST",
       mode: "cors",
       headers: {
@@ -19,15 +18,21 @@ export const UseLogin = () => {
       },
       body: JSON.stringify({ email, password }),
     };
-    const response = await fetch(uri, init);
-    const json = await response.json();
 
-    if (response.ok) {
-      localStorage.setItem("user", JSON.stringify(json));
-      dispatch({ type: "LOGIN", payload: json });
-    } else {
-      setError(json.error);
+    try {
+      const res = await fetch(uri, options);
+      const json = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem("user", JSON.stringify(json));
+        dispatch({ type: "LOGIN", payload: json });
+      } else {
+        setError(json.message);
+      }
+    } catch (error) {
+      setError(error.message);
     }
+
     setIsLoading(false);
   };
 
