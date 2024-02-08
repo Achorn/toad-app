@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/toad-app/static/css/main.1de57574.css",
-    "main.js": "/toad-app/static/js/main.1959044c.js",
+    "main.css": "/toad-app/static/css/main.b9c7b4b1.css",
+    "main.js": "/toad-app/static/js/main.5671375e.js",
     "static/media/toad-init-v2.png": "/toad-app/static/media/toad-init-v2.2b8c6a3fc7efe788ebf5.png",
     "static/media/bottle-trans.png": "/toad-app/static/media/bottle-trans.1e5f0382c69f2067d3b1.png",
     "static/media/book.png": "/toad-app/static/media/book.db95d4200a9a36137475.png",
     "index.html": "/toad-app/index.html",
-    "main.1de57574.css.map": "/toad-app/static/css/main.1de57574.css.map",
-    "main.1959044c.js.map": "/toad-app/static/js/main.1959044c.js.map"
+    "main.b9c7b4b1.css.map": "/toad-app/static/css/main.b9c7b4b1.css.map",
+    "main.5671375e.js.map": "/toad-app/static/js/main.5671375e.js.map"
   },
   "entrypoints": [
-    "static/css/main.1de57574.css",
-    "static/js/main.1959044c.js"
+    "static/css/main.b9c7b4b1.css",
+    "static/js/main.5671375e.js"
   ]
 }
