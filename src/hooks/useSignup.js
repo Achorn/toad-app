@@ -20,19 +20,20 @@ export const UseSignup = () => {
       body: JSON.stringify({ email, password }),
     };
     try {
-      const response = await fetch(uri, options);
-      const json = await response.json();
+      const res = await fetch(uri, options);
+      const json = await res.json();
 
-      if (response.ok) {
+      if (res.ok) {
         localStorage.setItem("user", JSON.stringify(json));
         dispatch({ type: "LOGIN", payload: json });
       } else {
-        setError(json.error);
+        setError(json.message);
       }
     } catch (error) {
       setError(error.message);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return { signup, isLoading, error };
