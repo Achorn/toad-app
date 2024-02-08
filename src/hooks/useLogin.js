@@ -8,7 +8,7 @@ export const UseLogin = () => {
   const login = async (email, password) => {
     setIsLoading(true);
     setError(null);
-    const uri = "https://toad-api.onrender.com/api/user/logi";
+    const uri = "https://toad-api.onrender.com/api/user/login";
     const options = {
       method: "POST",
       mode: "cors",
