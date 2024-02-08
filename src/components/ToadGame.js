@@ -7,11 +7,13 @@ import "../components/buttons/button.css";
 import { CancelAction } from "./buttons/CancelAction";
 import { CursorImage } from "./cursorImage/CursorImage";
 import "./toadGame.css";
+import { ToadStatus } from "./toadStatus/ToadStatus";
 export const ToadGame = () => {
   const { error } = useGameContext();
 
   return (
     <div id="toadGame">
+      <ToadStatus />
       <TheToad />
       <CursorImage />
       <div className="buttonsRow">

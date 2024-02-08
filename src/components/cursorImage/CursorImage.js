@@ -10,6 +10,7 @@ export const CursorImage = () => {
   useEffect(() => {
     const handleWindowMouseMove = (e) => {
       setCoords({ x: e.clientX, y: e.clientY });
+      console.log(e.clientY);
     };
     window.addEventListener("mousemove", handleWindowMouseMove);
 
@@ -21,7 +22,7 @@ export const CursorImage = () => {
   return interaction !== null ? (
     <div
       className="cursor-img-container"
-      style={{ top: coords.y + -20 + "px", left: coords.x + -20 + "px" }}
+      style={{ top: coords.y + -90 + "px", left: coords.x + -20 + "px" }}
     >
       {interaction === "FEED" ? (
         <img className="cursor-img" alt="cursorImage" src={waterBottleImg} />

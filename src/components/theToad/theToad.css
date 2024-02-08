@@ -78,7 +78,7 @@
   bottom: 6%;
   height: 8%;
   width: 75%;
-  background-color: var(--prColor);
+  background-color: var(--git);
   animation: disolve 3s ease-in-out infinite;
 }
 
