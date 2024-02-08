@@ -13,9 +13,9 @@ export const ToadGame = () => {
 
   return (
     <div id="toadGame">
-      <ToadStatus />
       <TheToad />
       <CursorImage />
+      <ToadStatus />
       <div className="buttonsRow">
         <FeedButton />
         <EducateButton />
