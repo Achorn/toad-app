@@ -3,6 +3,8 @@ import { useToadContext } from "./useToadContext";
 import { UseAuthContext } from "./useAuthContext";
 import { useGameContext } from "../context/GameContext";
 
+const TOAD_URI = "https://toad-api.onrender.com/api/toads/";
+
 export const useGetToad = () => {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
@@ -13,7 +15,6 @@ export const useGetToad = () => {
   const getToad = async () => {
     setError(null);
     setLoading(true);
-    const uri = "https://toad-api.onrender.com/api/toads/";
     const options = {
       headers: {
         Authorization: `Bearer: ${user.token}`,
@@ -21,7 +22,7 @@ export const useGetToad = () => {
     };
 
     try {
-      const res = await fetch(uri, options);
+      const res = await fetch(TOAD_URI, options);
       const json = await res.json();
 
       if (res.ok) {
@@ -48,7 +49,7 @@ export const useDeleteToad = () => {
   const deleteToad = async () => {
     setError(null);
     setLoading(true);
-    const uri = "https://toad-api.onrender.com/api/toads/";
+    const uri = TOAD_URI;
     const options = {
       method: "DELETE",
       headers: {
@@ -90,7 +91,7 @@ export const useCreateToad = () => {
     setLoading(true);
     setError(null);
 
-    const uri = "https://toad-api.onrender.com/api/toads/";
+    const uri = TOAD_URI;
     const options = {
       method: "POST",
       body: JSON.stringify(toad),
@@ -104,7 +105,10 @@ export const useCreateToad = () => {
       const json = await res.json();
 
       if (res.ok) {
-        dispatch({ type: "SET_TOAD", payload: json });
+        dispatch({
+          type: "SET_TOAD",
+          payload: json,
+        });
       } else {
         setError(json.message);
       }
@@ -127,7 +131,7 @@ export const useUpdateToad = () => {
   const updateToad = async (previousToad, toad) => {
     setError(null);
     setLoading(true);
-    const uri = "https://toad-api.onrender.com/api/toads/" + toad._id;
+    const uri = TOAD_URI + toad._id;
     const options = {
       method: "PATCH",
       headers: {
@@ -142,7 +146,10 @@ export const useUpdateToad = () => {
       const res = await fetch(uri, options);
       const json = await res.json();
       if (res.ok) {
-        dispatch({ type: "SET_TOAD", payload: toad });
+        dispatch({
+          type: "SET_TOAD",
+          payload: toad,
+        });
       } else {
         setError(json.message);
       }
