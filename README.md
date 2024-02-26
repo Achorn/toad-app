@@ -4,18 +4,18 @@ A simplified Tamagotchi-like game where you create and interact with a toad by f
 
 ## Description
 
-a full stack MERN application that has strong error handling, and authentication in the backend while the front end messes around with fancy css animations to add life into its components.
+a full stack MERN application to sandbox new features im learning. this mern app has strong error handling with authentication in the backendm while the front end messes around with fancy css animations to add life into its components.
 
 ### Why
 
-This project is purely for laughs and reminds me that you can have fun while learning.
+This project is purely for laughs and to remind me that I can have fun while learning.
 
 ## How to Install
 
-No installation is necessary. the database is hosted on MongoDB, the server is hosted on Render, and the client is hosted on Git Hub. All you have to do is visit the website and start playing.
+No installation necessary. the database is hosted on MongoDB, the server is hosted on Render, and the client is hosted on Git Hub. All you have to do is visit the website and start playing.
 
 ## How to use
-This app is being hosted on Renders Free tier service, so it takes a minute to spin up the server. once the server is spun up, you can freely interact with the app. 
+This app is being hosted on Renders Free tier service, so it takes a minute to spin up the server. once the server is spun up, you can freely play around. 
 
 [Link to project](https://joshuaachorn.com/toad-app/#/)
 
