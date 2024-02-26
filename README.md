@@ -1,71 +1,70 @@
-# Getting Started with Create React App
+# Toad-agotchi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simplified tomagotchi-like game where you create and interact with a toad by feedng and educationg it.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+a full stack MERN application that has strong error hanlding, and authentication in the backend while the front end messes around with fancy css animations to add life into its components.
 
-### `npm start`
+### Why
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project is purely for laughs, and reminds me that you can have fun while learning.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Install
 
-### `npm test`
+No installation necessary. the database is hosted on MongoDB, the server is hosted on Render, and the client is hosted on github. all you have to do is visit the website and start playing.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to use
 
-### `npm run build`
+### Create account
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The email and password inputs are validated both on the front and backend, so
+you need a valid email and a strong password (8 characters in length, one number, and one capital letter)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Name your new toad
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Now that you have an account, you will be prompted to name your new toad.
 
-### `npm run eject`
+### come back to visit your toad and take care of it in various ways
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Once you've named your toad, the client will create a toad object and save it in the database. you can feed and educate your toad. once you've feed/interacted with your toad it will be 'full', and you wont be able to interact with your toad again until the health bars for each interaction has gone down. Then, your toad will be ready to interact with you again.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Deleting and creating a new toad
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If for any reason you wanted to start over, you can delete your toad by clicking on the delete button. Once your toad has been deleted from the database, you will be redirected to the 'name your toad' prompt.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Credits
 
-## Learn More
+this app was created by me.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Features
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Strong Error Handling
 
-### Code Splitting
+Constistent and uniform backend error handling for easy front end error handling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Authentication
 
-### Analyzing the Bundle Size
+encrypted passwords with Bcrypt and authentication using JSON Web Tokens
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### global state handling by context and reducer functions
 
-### Making a Progressive Web App
+this app is small enough to usilize Reacts Context API instead of Redux with the help of reducer to handle different types of global state updates
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Fun visual queues.
 
-### Advanced Configuration
+a cursor that displayes images depending on what interaction state the game is in.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+a health bar that displays bars for each type of interaction you can have with your toad.
 
-### Deployment
+a toad that float by use of multiple css animations.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Future Goals
 
-### `npm run build` fails to minify
+### More toad poses
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# toad-frontend
+happy sad angry emotes for when you're clickin on your toad.
+
+### Clickable resising health bar for smaller screens
+
+Already implemented in vanilla css html and js but not translated to React yet
