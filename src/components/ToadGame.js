@@ -1,6 +1,6 @@
 import { useGameContext } from "../context/GameContext";
 import { TheToad } from "./theToad/TheToad";
-// import { DeleteToad } from "./buttons/DeleteToad";
+import { DeleteToad } from "./buttons/DeleteToad";
 import { EducateButton } from "./buttons/EducateButton";
 import { FeedButton } from "./buttons/FeedButton";
 import "../components/buttons/button.css";
@@ -22,7 +22,7 @@ export const ToadGame = () => {
         <CancelAction />
       </div>
       {error && <div className="error">{error}</div>}
-      {/* <DeleteToad /> */}
+      <DeleteToad />
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { UseAuthContext } from "../hooks/useAuthContext";
 import { UseLogout } from "../hooks/useLogout";
+import { Typography } from "@mui/material";
+import FlexBetween from "./FlexBetween";
 
 export const Navbar = () => {
   const { user } = UseAuthContext();
@@ -10,7 +12,9 @@ export const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <h1>King Toad</h1>
+          <Typography variant="h4" noWrap>
+            King Toad
+          </Typography>
         </Link>
         <nav>
           {/* <Link to="/about">About</Link> */}
@@ -21,10 +25,10 @@ export const Navbar = () => {
             </div>
           )}
           {user && (
-            <div>
-              <span>{user.email}</span>
+            <FlexBetween>
+              <Typography noWrap>{user.email}</Typography>
               <button onClick={logout}>Logout</button>
-            </div>
+            </FlexBetween>
           )}
         </nav>
       </div>
